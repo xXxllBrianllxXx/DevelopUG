@@ -1,0 +1,9 @@
+El ultimo punto que dice "Cada habitación deberá permitir registrar la ubicación en que se encuentra"
+Este atributo lo deberia tener el hotel y no la habitacion, de igual manera lo deje como lo solicitaron.
+
+Siempre q se crea un componente nuevo:
+Registrar aca:
+    /src/app/layouts/admin-layout/admin-layout.module.ts
+    /src/app/layouts/admin-layout/admin-layout.routing.ts
+Quitar de:
+    /src/app/app.module.ts

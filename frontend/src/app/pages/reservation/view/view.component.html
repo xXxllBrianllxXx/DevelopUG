@@ -1,0 +1,49 @@
+<h1 mat-dialog-title>Detalle reserva #{{ data.info.id }} del {{ data.detail[0].date_create | date:"dd/MM/yyyy" }}</h1>
+<div mat-dialog-content>
+
+  <mat-list>
+    <mat-list-item><b>Ciudad:</b><span>{{ data.info.name }}</span></mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item><b>Hotel:</b><span>{{ data.info.name_hotel }}</span></mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item><b>Habitación:</b><span>{{ data.info.name_room }}</span></mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item><b>Fecha ingreso:</b><span>{{ data.info.date_start | date:"dd/MM/yyyy" }}</span></mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item><b>Fecha Salida:</b><span>{{ data.info.date_end | date:"dd/MM/yyyy" }}</span></mat-list-item>
+  </mat-list>
+
+  <br>
+
+<h4><b>Personas</b></h4>
+
+  <mat-accordion>
+
+    <mat-expansion-panel *ngFor="let item of data.detail; let i = index">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ item.name_person }} {{ item.last_name }}
+        </mat-panel-title>
+        <mat-panel-description>
+          # {{ i+1 }}
+        </mat-panel-description>
+      </mat-expansion-panel-header>  
+
+        <mat-list>
+          <mat-list-item><b>Fecha de nacimiento:</b><span>{{ item.birth | date:"dd/MM/yyyy" }}</span></mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item><b>Genero:</b><span>{{ item.name_gender }}</span></mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item><b>Documento:</b><span>{{ item.type_doc }} # {{ item.number_doc }}</span></mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item><b>Email:</b><span>{{ item.email }}</span></mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item><b>Telefono:</b><span>{{ item.phone }}</span></mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item><b>Contacto:</b><span>{{ item.name_contact }} ({{ item.phone_contact }})</span></mat-list-item>
+        </mat-list>
+
+    </mat-expansion-panel>
+
+  </mat-accordion>
+</div>

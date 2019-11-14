@@ -1,0 +1,47 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <mat-form-field>
+                    <input matInput [matDatepicker]="fini" placeholder="Fecha llegada">
+                    <mat-datepicker-toggle matSuffix [for]="fini"></mat-datepicker-toggle>
+                    <mat-datepicker #fini></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <mat-form-field>
+                    <input matInput [matDatepicker]="ffin" placeholder="Fecha salida">
+                    <mat-datepicker-toggle matSuffix [for]="ffin"></mat-datepicker-toggle>
+                    <mat-datepicker #ffin></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card card-chart">
+                    <div class="card-header card-header-info color-bars" (click)="showRoom()">
+                        <img src="https://www.circhotel.com/uploads/9/8/6/9/98696408/deluxe-two-queen_2_orig.jpg" alt="">
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats color-blue">
+                            <i class="material-icons">home</i> Medellin
+                        </div>
+                        <div class="stats color-green">
+                            <i class="material-icons">attach_money</i> 5000
+                        </div>
+                        <div class="stats color-red">
+                            <i class="material-icons">location_on</i> Medellin
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  

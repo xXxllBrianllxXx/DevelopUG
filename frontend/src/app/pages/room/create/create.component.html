@@ -1,0 +1,33 @@
+<h1 mat-dialog-title>Crear habitación</h1>
+<div mat-dialog-content>
+
+  <mat-form-field>
+    <input #name matInput placeholder="Nombre">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input #cost matInput placeholder="Valor">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input #tax matInput placeholder="Impuesto">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input #location matInput placeholder="Ubicación">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Tipo</mat-label>
+    <mat-select [(value)]="selected">
+      <mat-option *ngFor="let item of data" [value]="item.id">
+        {{ item.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-raised-button color="primary" (click)="onCreteClick()" cdkFocusInitial>Crear</button>
+</div>

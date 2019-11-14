@@ -1,0 +1,33 @@
+<h1 mat-dialog-title>Editar habitación</h1>
+<div mat-dialog-content>
+
+  <mat-form-field>
+    <input #name matInput [(ngModel)]="data.info.name" placeholder="Nombre">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input #cost matInput [(ngModel)]="data.info.cost_room" placeholder="Valor">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input #tax matInput [(ngModel)]="data.info.tax" placeholder="Impuesto">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input #location matInput [(ngModel)]="data.info.location" placeholder="Ubicación">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Tipo</mat-label>
+    <mat-select [(value)]="selected">
+      <mat-option *ngFor="let item of data.types" [value]="item.id">
+        {{ item.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-raised-button color="primary" (click)="onEditClick()" cdkFocusInitial>Editar</button>
+</div>
