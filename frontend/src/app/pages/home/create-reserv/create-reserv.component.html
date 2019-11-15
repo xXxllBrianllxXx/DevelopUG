@@ -1,0 +1,100 @@
+<h1 mat-dialog-title>Crear reserva</h1>
+
+<h4><b>Resumen de la reserva</b></h4>
+
+<div mat-dialog-content>
+
+  <mat-list>
+      <mat-list-item><b>Ciudad:</b><span>{{ data.info.select.city }}</span></mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item><b>Hotel:</b><span>{{ data.info.select.name }}</span></mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item><b>Habitación:</b><span>{{ data.info.select.name_room }}</span></mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item><b>Costo :</b><span>{{ data.info.select.cost }}</span></mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item><b>Reserva del </b><span>{{ data.info.ini }}</span><span></span><b> al </b><span>{{ data.info.end }}</span></mat-list-item>
+    </mat-list>
+
+    <br>
+
+  <h4><b>Personas</b></h4>
+
+  <mat-accordion>
+
+    <mat-expansion-panel *ngFor="let item of cantPeople; let i = index">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Detalle persona
+        </mat-panel-title>
+        <mat-panel-description>
+          # {{ i+1 }}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+        <mat-list>
+          <mat-list-item>
+            <b>Nombres:</b><span></span><input [(ngModel)]="formData.name[i]" matInput placeholder="pepito" autocomplete="off">
+          </mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item>
+            <b>Apellidos:</b><span></span><input [(ngModel)]="formData.surname[i]" matInput placeholder="perez" autocomplete="off">
+          </mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item>
+            <b>Cumpleaños:</b><span></span>
+            <input matInput [(ngModel)]="formData.christ[i]" [matDatepicker]="fchrist">
+              <mat-datepicker-toggle matSuffix [for]="fchrist"></mat-datepicker-toggle>
+            <mat-datepicker #fchrist></mat-datepicker>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item>
+            <b>Genero:</b><span></span>
+            <mat-select [(ngModel)]="formData.gender[i]">
+              <mat-option *ngFor="let item of data.gender" [value]="item.id">
+              {{ item.name }}
+              </mat-option>
+            </mat-select>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item>
+            <b class="b-large-dos">Tipo doc:</b><span></span>
+            <mat-select [(ngModel)]="formData.type_doc[i]">
+              <mat-option *ngFor="let item of data.type_doc" [value]="item.id">
+              {{ item.name }}
+              </mat-option>
+            </mat-select>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item>
+            <b class="b-large"># doc:</b><span></span><input matInput [(ngModel)]="formData.doc[i]" placeholder="123456789" autocomplete="off">
+          </mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item>
+            <b>Email:</b><span></span><input matInput [(ngModel)]="formData.mail[i]" placeholder="pepito@perez.com" type="mail" autocomplete="off">
+          </mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item>
+            <b>Telefono:</b><span></span><input matInput [(ngModel)]="formData.phone[i]" placeholder="3137398299" autocomplete="off">
+          </mat-list-item>
+
+          <mat-divider></mat-divider>
+          <mat-divider></mat-divider>
+          <mat-list-item>
+            <b class="b-large-tres">Nombre contacto:</b><span></span><input matInput [(ngModel)]="formData.contact_name[i]" placeholder="contacto de emergencia" autocomplete="off">
+          </mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item>
+            <b class="b-large-tres">Telefono contacto:</b><span></span><input matInput [(ngModel)]="formData.contact_phone[i]" placeholder="numero de emergencia" autocomplete="off">
+          </mat-list-item>
+        </mat-list>
+
+    </mat-expansion-panel>
+
+  </mat-accordion>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-raised-button color="primary" (click)="onCreteClick()" cdkFocusInitial>Crear</button>
+</div>

@@ -22,6 +22,7 @@ import { EditComponent as EditHotelComponent } from '../../pages/hotel/edit/edit
 import { EditComponent as EditRoomComponent } from '../../pages/room/edit/edit.component';
 import { ViewComponent as ViewReservationComponent } from '../../pages/reservation/view/view.component';
 import { HomeComponent } from '../../pages/home/home.component';
+import { CreateReservComponent } from 'app/pages/home/create-reserv/create-reserv.component';
 import {
   MatRippleModule,
   MatTooltipModule,
@@ -87,6 +88,7 @@ import {
     EditHotelComponent,
     EditRoomComponent,
     ViewReservationComponent,
+    CreateReservComponent,
     UserProfileComponent,
     TableListComponent,
     TypographyComponent,
@@ -102,6 +104,7 @@ import {
     EditRoomComponent,
     MatDatepickerModule,
     ViewReservationComponent,
+    CreateReservComponent,
     {
       provide: MatDialogRef,
       useValue: {}
@@ -116,7 +119,8 @@ import {
     CreateRoomComponent,
     EditHotelComponent,
     EditRoomComponent,
-    ViewReservationComponent
+    ViewReservationComponent,
+    CreateReservComponent
   ],
 })
 

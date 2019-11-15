@@ -10,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 export class EditComponent implements OnInit {
 
   selected = 1;
+  selectedCity = 1;
 
   constructor(private toastr: ToastrService,
     public dialogRef: MatDialogRef<EditComponent>,
@@ -17,6 +18,7 @@ export class EditComponent implements OnInit {
 
   ngOnInit() {
     this.selected = this.data.info.id_type;
+    this.selectedCity = this.data.info.location;
   }
 
   onNoClick(): void {
@@ -27,8 +29,7 @@ export class EditComponent implements OnInit {
 
     if (this.data.info.name === '' || this.data.info.name === null || this.data.info.name === undefined ||
         this.data.info.cost_room === '' || this.data.info.cost_room === null || this.data.info.cost_room === undefined ||
-        this.data.info.tax === '' || this.data.info.tax === null || this.data.info.tax === undefined ||
-        this.data.info.location === '' || this.data.info.location === null || this.data.info.location === undefined ) {
+        this.data.info.tax === '' || this.data.info.tax === null || this.data.info.tax === undefined ) {
       this.toastr.warning('Todos los campos son requeridos');
       return;
     }
@@ -38,7 +39,7 @@ export class EditComponent implements OnInit {
       name: this.data.info.name,
       cost: this.data.info.cost_room,
       tax: this.data.info.tax,
-      location: this.data.info.location,
+      location: this.selectedCity,
       type: this.selected
     };
 

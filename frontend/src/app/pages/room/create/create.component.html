@@ -14,13 +14,18 @@
   </mat-form-field>
 
   <mat-form-field>
-    <input #location matInput placeholder="Ubicación">
+    <mat-label>Ubicación</mat-label>
+    <mat-select [(value)]="selectedCity">
+      <mat-option *ngFor="let item of data.city" [value]="item.id">
+        {{ item.name }}
+      </mat-option>
+    </mat-select>
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Tipo</mat-label>
     <mat-select [(value)]="selected">
-      <mat-option *ngFor="let item of data" [value]="item.id">
+      <mat-option *ngFor="let item of data.info" [value]="item.id">
         {{ item.name }}
       </mat-option>
     </mat-select>

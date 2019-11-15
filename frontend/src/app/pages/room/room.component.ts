@@ -60,34 +60,43 @@ export class RoomComponent implements OnInit {
   editModal(info): void {
 
     this.roomService.getTypes().subscribe( resp => {
-
       if (resp.success) {
 
-        const dialogRef = this.dialog.open(EditComponent, {
-          width: '250px',
-          data: {
-            info,
-            types: resp.data
-          }
-        });
+        this.roomService.getCity().subscribe( respo => {
+          if (respo.success) {
 
-        dialogRef.afterClosed().subscribe(result => {
-
-          if (result !== undefined && result !== null && result !== '') {
-
-            this.roomService.updateRoom(result).subscribe( respo => {
-              if (respo.success) {
-                this.toastr.success(respo.msg);
-                this.ngOnInit();
-              } else {
-                this.toastr.warning(respo.msg);
+            const dialogRef = this.dialog.open(EditComponent, {
+              width: '250px',
+              data: {
+                info,
+                types: resp.data,
+                city: respo.data
               }
-            }, err => {
-              console.log(err.error.msg);
+            });
+
+            dialogRef.afterClosed().subscribe(result => {
+
+              if (result !== undefined && result !== null && result !== '') {
+
+                this.roomService.updateRoom(result).subscribe( respon => {
+                  if (respon.success) {
+                    this.toastr.success(respon.msg);
+                    this.ngOnInit();
+                  } else {
+                    this.toastr.warning(respon.msg);
+                  }
+                }, err => {
+                  console.log(err.error.msg);
+                });
+              } else {
+                this.ngOnInit();
+              }
             });
           } else {
-            this.ngOnInit();
+            this.toastr.warning(respo.msg);
           }
+        }, err => {
+          console.log(err.error.msg);
         });
 
       } else {
@@ -103,28 +112,41 @@ export class RoomComponent implements OnInit {
     this.roomService.getTypes().subscribe( resp => {
       if (resp.success) {
 
-        const dialogRef = this.dialog.open(CreateComponent, {
-          width: '250px',
-          data: resp.data
-        });
+        this.roomService.getCity().subscribe( respo => {
+          if (respo.success) {
 
-        dialogRef.afterClosed().subscribe(result => {
-
-          if (result !== undefined && result !== null && result !== '') {
-
-            this.roomService.createRoom(result).subscribe( respo => {
-              if (respo.success) {
-                this.toastr.success(respo.msg);
-                this.ngOnInit();
-              } else {
-                this.toastr.warning(respo.msg);
+            const dialogRef = this.dialog.open(CreateComponent, {
+              width: '250px',
+              data: {
+                info: resp.data,
+                city: respo.data
               }
-            }, err => {
-              console.log(err.error.msg);
             });
+
+            dialogRef.afterClosed().subscribe(result => {
+
+              if (result !== undefined && result !== null && result !== '') {
+
+                this.roomService.createRoom(result).subscribe( respon => {
+                  if (respon.success) {
+                    this.toastr.success(respon.msg);
+                    this.ngOnInit();
+                  } else {
+                    this.toastr.warning(respon.msg);
+                  }
+                }, err => {
+                  console.log(err.error.msg);
+                });
+              } else {
+                this.ngOnInit();
+              }
+            });
+
           } else {
-            this.ngOnInit();
+            this.toastr.warning(respo.msg);
           }
+        }, err => {
+          console.log(err.error.msg);
         });
 
       } else {

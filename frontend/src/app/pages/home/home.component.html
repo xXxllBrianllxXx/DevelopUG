@@ -3,40 +3,53 @@
         <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <mat-form-field>
-                    <input matInput [matDatepicker]="fini" placeholder="Fecha llegada">
+                    <input matInput [matDatepicker]="fini" placeholder="Angular forms" [formControl]="dateStart">
                     <mat-datepicker-toggle matSuffix [for]="fini"></mat-datepicker-toggle>
                     <mat-datepicker #fini></mat-datepicker>
                 </mat-form-field>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <mat-form-field>
-                    <input matInput [matDatepicker]="ffin" placeholder="Fecha salida">
-                    <mat-datepicker-toggle matSuffix [for]="ffin"></mat-datepicker-toggle>
-                    <mat-datepicker #ffin></mat-datepicker>
+                    <input matInput [matDatepicker]="fend" placeholder="Fecha salida" [formControl]="dateEnd">
+                    <mat-datepicker-toggle matSuffix [for]="fend"></mat-datepicker-toggle>
+                    <mat-datepicker #fend></mat-datepicker>
                 </mat-form-field>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
-
+                <mat-form-field>
+                    <mat-label>Ciudad destino</mat-label>
+                    <mat-select [(value)]="selectedCity">
+                        <mat-option [value]="cero">Todas</mat-option>
+                        <mat-option *ngFor="let item of city" [value]="item.id">
+                        {{ item.name }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-
+            <div class="col-lg-2 col-md-6 col-sm-6">
+                <mat-form-field class="example-full-width">
+                    <input #people matInput placeholder="Cantidad de personas" type="number" value="1">
+                </mat-form-field>
+            </div>
+            <div class="col-lg-1 col-md-6 col-sm-6">
+                <button mat-raised-button color="primary" (click)="onSearchClick()">Buscar</button>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3" *ngFor="let item of infoHome">
                 <div class="card card-chart">
-                    <div class="card-header card-header-info color-bars" (click)="showRoom()">
-                        <img src="https://www.circhotel.com/uploads/9/8/6/9/98696408/deluxe-two-queen_2_orig.jpg" alt="">
+                    <div class="card-header card-header-info color-bars" (click)="showRoom(item)">
+                        <img src="https://ahsensaeed.com/wp-content/uploads/2019/10/Android-Room-Persistence-Library-Changes.jpg" alt="">
                     </div>
                     <div class="card-footer">
                         <div class="stats color-blue">
-                            <i class="material-icons">home</i> Medellin
+                            <i class="material-icons">home</i> {{ item.name }}
                         </div>
                         <div class="stats color-green">
-                            <i class="material-icons">attach_money</i> 5000
+                            <i class="material-icons">attach_money</i> {{ item.cost }}
                         </div>
                         <div class="stats color-red">
-                            <i class="material-icons">location_on</i> Medellin
+                            <i class="material-icons">location_on</i> {{ item.city }}
                         </div>
                     </div>
                 </div>
@@ -44,4 +57,3 @@
         </div>
     </div>
 </div>
-  

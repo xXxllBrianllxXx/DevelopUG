@@ -37,4 +37,28 @@ export class RoomService {
   updateRoom(data) {
     return this.http.post<any>(environment.apiUrl + 'update-room', data);
   }
+
+  getCity() {
+    return this.http.get<any>(environment.apiUrl + 'city');
+  }
+
+  getGender() {
+    return this.http.get<any>(environment.apiUrl + 'get-gender');
+  }
+
+  getTypeDoc() {
+    return this.http.get<any>(environment.apiUrl + 'type-doc');
+  }
+
+  getInfoHome(data) {
+    return this.http.post<any>(environment.apiUrl + 'info-home', data);
+  }
+
+  insertReservation(data) {
+    return this.http.post<any>(environment.apiUrl + 'insert-reservation', data);
+  }
+
+  insertPerson(data) {
+    return this.http.post<any>(environment.apiUrl + 'create-people', data);
+  }
 }

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 14-11-2019 a las 09:25:16
--- Versión del servidor: 5.6.37
--- Versión de PHP: 7.1.8
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 14-11-2019 a las 23:07:33
+-- Versión del servidor: 10.1.36-MariaDB
+-- Versión de PHP: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -41,7 +41,7 @@ CREATE TABLE `agents` (
 --
 
 INSERT INTO `agents` (`id`, `user`, `pass`, `token`, `name`) VALUES
-(1, 'brian', '12345', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbkRhdGEiOnsidXNlciI6ImJyaWFuIiwicGFzcyI6IjEyMzQ1In0sImlhdCI6MTU3MzUxMjM1M30.AtH-cjoBdcQQbLYiPiQImuTtm-tCrXsBoJb7a3_NwtU', 'Brian R');
+(1, 'brian', '12345', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbkRhdGEiOnsidXNlciI6ImJyaWFuIiwicGFzcyI6IjEyMzQ1In0sImlhdCI6MTU3MzczMzg3MX0.92otqOCZzEdXYnF4SzR_g9xw_1ofTfEcqSgWReqvf-M', 'Brian R');
 
 -- --------------------------------------------------------
 
@@ -91,7 +91,31 @@ INSERT INTO `contact` (`id`, `name`, `phone`) VALUES
 (7, 'Contact siete', 2147483647),
 (8, 'Contact ocho', 2147483647),
 (9, 'Contact nueve', 2147483647),
-(10, 'Contact diez', 1010101010);
+(10, 'Contact diez', 1010101010),
+(11, 'bartolome', 0),
+(12, 'yayaya', 12345),
+(13, 'yayaya', 12345),
+(14, 'papapa', 321),
+(15, 'papapa', 321),
+(16, 'asd', 0),
+(17, 'vbnvbn', 456456),
+(18, 'vbnvbn', 456456),
+(19, 'asd', 0),
+(20, 'asd', 0),
+(21, 'asd', 0),
+(22, 'tyu', 987),
+(23, 'tyu', 987),
+(24, 'asd', 0),
+(25, 'qwe', 98),
+(26, 'qwe', 98),
+(27, 'william', 2147483647),
+(28, 'asd', 5198198),
+(29, 'asd', 7849515),
+(30, 'asd', 5198198),
+(31, 'asd', 7849515),
+(32, 'william', 2147483647),
+(33, '456456', 456456),
+(34, 'papaye 2', 466787);
 
 -- --------------------------------------------------------
 
@@ -233,7 +257,17 @@ INSERT INTO `reservations` (`id`, `date_create`, `date_start`, `date_end`, `peop
 (20, '2019-11-12', '2019-11-17', '2019-12-27', 70, 2, 22, 7),
 (21, '2019-11-12', '2019-11-18', '2019-12-28', 80, 3, 23, 8),
 (22, '2019-11-12', '2019-11-19', '2019-12-29', 90, 4, 24, 9),
-(23, '2019-11-12', '2019-11-10', '2019-12-10', 5, 5, 25, 10);
+(23, '2019-11-12', '2019-11-10', '2019-12-10', 5, 5, 25, 10),
+(25, '2019-11-14', '2019-11-14', '2019-11-14', 1, 1, 118, 25),
+(26, '2019-11-14', '2019-11-14', '2019-11-14', 1, 1, 118, 26),
+(27, '2019-11-14', '2019-11-14', '2019-11-14', 3, 1, 16, 29),
+(28, '2019-11-14', '2019-11-14', '2019-11-14', 3, 1, 16, 29),
+(29, '2019-11-14', '2019-11-14', '2019-11-14', 3, 1, 16, 29),
+(30, '2019-11-14', '2019-11-14', '2019-11-14', 3, 1, 16, 32),
+(31, '2019-11-14', '2019-11-14', '2019-11-14', 3, 1, 16, 32),
+(32, '2019-11-14', '2019-11-14', '2019-11-14', 3, 1, 16, 32),
+(33, '2019-11-14', '2019-11-14', '2019-11-14', 2, 1, 113, 34),
+(34, '2019-11-14', '2019-11-14', '2019-11-14', 2, 1, 113, 34);
 
 -- --------------------------------------------------------
 
@@ -286,7 +320,12 @@ INSERT INTO `reservation_detail` (`id`, `name`, `last_name`, `birth`, `id_gender
 (25, 'pepito 7', 'perez 7', '1997-10-16', 2, '7777777777', 'email.prueba@gmail.com', 2147483647, 10, 1),
 (26, 'pepito 8', 'perez 8', '1998-10-16', 2, '8888888888', 'email.prueba@gmail.com', 2147483647, 11, 2),
 (27, 'pepito 9', 'perez 9', '1999-10-16', 2, '9999999999', 'email.prueba@gmail.com', 2147483647, 12, 3),
-(28, 'pepito 10', 'perez 10', '0000-00-00', 2, '1010101010', 'email.prueba@gmail.com', 2147483647, 13, 1);
+(28, 'pepito 10', 'perez 10', '0000-00-00', 2, '1010101010', 'email.prueba@gmail.com', 2147483647, 13, 1),
+(29, 'asdsadasdsad', 'asdasdadasdasd', '2019-11-01', 2, '6216159', 'asd', 59951, 32, 1),
+(30, 'asd', 'asd', '2019-11-15', 2, '4569871', 'asd', 25631478, 32, 2),
+(31, 'brian', 'brian', '2019-11-01', 1, '1047971220', 'brian@brian.com', 2147483647, 32, 1),
+(32, 'papaya', 'papaya', '2019-11-01', 2, '45456', '456456', 456456, 34, 1),
+(33, 'papaye', 'papaye', '2019-11-08', 2, '5416516', 'papaye', 45358, 34, 1);
 
 -- --------------------------------------------------------
 
@@ -321,7 +360,8 @@ INSERT INTO `rooms` (`id`, `name`, `cost`, `tax`, `location`, `state`, `id_type`
 (10, 'Habitaciòn 10', 10000, 19, 5, 1, 2),
 (11, '123', 123, 123, 1, 1, 4),
 (12, '11111', 11111, 11111, 2, 1, 2),
-(13, 'bars', 1000, 5, 3, 1, 3);
+(13, 'bars', 1000, 5, 3, 1, 3),
+(14, 'barsta', 5000, 5, 3, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -463,7 +503,7 @@ ALTER TABLE `city`
 -- AUTO_INCREMENT de la tabla `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT de la tabla `gender`
@@ -487,19 +527,19 @@ ALTER TABLE `hotel_room`
 -- AUTO_INCREMENT de la tabla `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT de la tabla `reservation_detail`
 --
 ALTER TABLE `reservation_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de la tabla `rooms`
 --
 ALTER TABLE `rooms`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `types`
